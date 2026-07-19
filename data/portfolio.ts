@@ -37,24 +37,26 @@ export const projects = [
     impact:
       "Brings remote measurements, appointment management, project tracking, customer communication, and designer discovery into one coordinated workflow.",
     image: "/images/feysefitt.png",
-    demo: "",
-    source: "",
+    demo: "https://feysefit.vercel.app/",
+    source: "https://github.com/dodomiyake/feysefit",
   },
   {
     id: "02",
     name: "RCCG FLT",
     summary:
-      "TODO: Add a short description explaining what RCCG FLT is and the problem it solves.",
+      "A responsive church website created for RCCG FLT to present the ministry, share service information and events, and help members and visitors stay connected.",
     contribution:
-      "TODO: Add your role and the parts of the application you designed or developed.",
+      "Website design, frontend development, responsive implementation, and content architecture",
     stack: [
-      "TODO",
+      "Frontend Development",
+      "Responsive Web Design",
+      "Content Management",
     ],
     impact:
-      "TODO: Explain the main benefit or measurable result delivered by the project.",
+      "Established a clear digital presence where visitors can learn about the church, view programmes and service details, and access important contact information.",
     image: "/images/rccglt.png",
-    demo: "",
-    source: "",
+    demo: "https://www.rccgglt.org/",
+    source: "https://github.com/dodomiyake/rccg-Godslovetabernacle",
   },
   {
     id: "03",
@@ -77,7 +79,7 @@ export const projects = [
     impact:
       "Delivered a complete shopping experience with persistent cart state, Stripe checkout, cloud-hosted services, and Amazon S3 media storage.",
     image: "/images/zenhaven.png",
-    demo: "",
+    demo: "https://zenhaven-frontend.onrender.com/",
     source: "https://github.com/dodomiyake/zenhaven",
   },
   {
@@ -98,7 +100,7 @@ export const projects = [
     impact:
       "Enabled users to communicate through private and group conversations with typing indicators, timestamps, avatars, and real-time file sharing.",
     image: "/images/chitchatt.png",
-    demo: "",
+    demo: "https://real-time-chat-app-1-ctof.onrender.com/",
     source: "https://github.com/dodomiyake/real-time-chat-app",
   },
   {
@@ -118,7 +120,7 @@ export const projects = [
     impact:
       "Delivered a complete listing platform with user authentication, protected routes, interactive maps, reviews, and full CRUD operations.",
     image: "/images/yelpcampp.png",
-    demo: "",
+    demo: "https://yelpcamp-1bu3.onrender.com/",
     source: "https://github.com/dodomiyake/yelpcamp",
   },
 ] as const;
