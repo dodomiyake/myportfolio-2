@@ -26,11 +26,22 @@ export function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      const payload = (await res.json().catch(() => null)) as { error?: string } | null;
+
+      const raw = await res.text();
+      let payload: { error?: string; ok?: boolean } | null = null;
+      if (raw.trim()) {
+        try {
+          payload = JSON.parse(raw) as { error?: string; ok?: boolean };
+        } catch {
+          payload = null;
+        }
+      }
+
       if (!res.ok) {
         setSubmitError(payload?.error ?? "Could not send your message. Please try again.");
         return;
       }
+
       setSent(true);
       reset();
     } catch {

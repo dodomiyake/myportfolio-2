@@ -1,2 +1,57 @@
-import { ArrowDown,ArrowUpRight,GitBranch,Link } from "lucide-react";import { portfolio } from "@/data/portfolio";
-export function Hero(){return <section id="hero" className="hero" data-scene="hero"><div className="hero-grid"><div className="hero-copy reveal"><p className="eyebrow"><span className="status"/> Available for selected projects</p><h1>{portfolio.name}<small>{portfolio.role}</small></h1><p className="hero-line">{portfolio.headline}</p><div className="hero-actions"><a className="button primary" href="#work">View my work <ArrowDown size={17}/></a><a className="button ghost" href="#contact">Contact me <ArrowUpRight size={17}/></a></div></div><div className="hero-side"><p>SCROLL TO EXPLORE</p><span>01—07</span></div><div className="socials"><a href={portfolio.social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><GitBranch aria-hidden="true"/></a><a href={portfolio.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Link aria-hidden="true"/></a></div></div></section>}
+import { ArrowDown, ArrowUpRight, GitBranch, Link } from "lucide-react";
+import { portfolio } from "@/data/portfolio";
+
+const [firstName, ...lastNameParts] = portfolio.name.split(" ");
+const lastName = lastNameParts.join(" ");
+
+export function Hero() {
+  return (
+    <section id="hero" className="hero" data-scene="hero">
+      <div className="hero-grid">
+        <div className="hero-copy reveal">
+          <p className="eyebrow">
+            <span className="status" /> Available for selected projects
+          </p>
+          <h1>
+            <span className="hero-name">
+              <span className="hero-firstname">{firstName}</span>
+              {lastName ? <span className="hero-lastname">{lastName}</span> : null}
+            </span>
+            <small>{portfolio.role}</small>
+          </h1>
+          <p className="hero-line">{portfolio.headline}</p>
+          <div className="hero-actions">
+            <a className="button primary" href="#work">
+              View my work <ArrowDown size={17} aria-hidden="true" />
+            </a>
+            <a className="button ghost" href="#contact">
+              Contact me <ArrowUpRight size={17} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+        <div className="hero-side">
+          <p>SCROLL TO EXPLORE</p>
+          <span>01—07</span>
+        </div>
+        <div className="socials">
+          <a
+            href={portfolio.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <GitBranch aria-hidden="true" />
+          </a>
+          <a
+            href={portfolio.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <Link aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
