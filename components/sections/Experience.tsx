@@ -1,0 +1,2 @@
+import { experience } from "@/data/portfolio";import { Section } from "@/components/ui/Section";
+export function Experience(){return <Section id="experience" index="05" kicker="Development timeline" title="Built through iteration."><div className="timeline">{experience.map((e,i)=><article className="timeline-item reveal" key={e.role+e.company}><div className="node"><span>{i+1}</span></div><div><p className="eyebrow">{e.dates}</p><h3>{e.role} <span>— {e.company}</span></h3><p>{e.text}</p><p className="win">{e.win}</p><small>{e.tech}</small></div></article>)}</div></Section>}

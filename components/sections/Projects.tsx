@@ -1,0 +1,2 @@
+import { projects } from "@/data/portfolio";import { ProjectCard } from "@/components/ui/ProjectCard";import { Section } from "@/components/ui/Section";
+export function Projects(){return <Section id="work" index="04" kicker="Selected work" title="Products with purpose." className="projects-section"><div className="project-list">{projects.map(p=><ProjectCard key={p.id} project={p}/>)}</div></Section>}

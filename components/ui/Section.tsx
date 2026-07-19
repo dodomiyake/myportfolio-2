@@ -1,0 +1,2 @@
+import type { ReactNode } from "react";
+export function Section({id,index,kicker,title,children,className=""}:{id:string,index:string,kicker:string,title:string,children:ReactNode,className?:string}){return <section id={id} className={`section ${className}`} data-scene={id}><div className="section-inner"><div className="section-head reveal"><span>{index}</span><p className="eyebrow">{kicker}</p><h2>{title}</h2></div>{children}</div></section>}
