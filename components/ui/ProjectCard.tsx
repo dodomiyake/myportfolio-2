@@ -2,8 +2,8 @@ import { ArrowUpRight, GitBranch } from "lucide-react";
 import { projects } from "@/data/portfolio";
 
 export function ProjectCard({ project }: { project: (typeof projects)[number] }) {
-  const hasDemo = Boolean(project.demo && project.demo !== "#");
-  const hasSource = Boolean(project.source && project.source !== "#");
+  const hasDemo = Boolean(project.demo);
+  const hasSource = Boolean(project.source);
 
   return (
     <article className="project-card reveal">
