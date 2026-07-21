@@ -2,7 +2,7 @@ export const portfolio = {
   name: "Oluwadamilola Ajayi",
   role: "Full-Stack Software Developer",
   headline: "Building thoughtful digital products from interface to infrastructure.",
-  bio: "I turn complex product ideas into reliable, human-centred software—shaping the experience, engineering the system, and refining what ships.",
+  bio: "My approach starts with understanding the problem before choosing the technology. I study the users, goals, requirements, and constraints, then transform complex ideas into clear, manageable systems. I work iteratively—planning, building, testing, gathering feedback, and improving until the product delivers meaningful value.",
   email: "oluwadamilola.william@gmail.com",
   location: "United Kingdom · Available remotely",
   experienceYears: "4+",
@@ -12,17 +12,34 @@ export const portfolio = {
 } as const;
 
 export const expertise = [
-  ["Frontend", "Fast, accessible interfaces with strong design fidelity."], ["Backend", "Secure APIs and clear service architecture."],
-  ["Mobile", "Cross-platform experiences that feel native."], ["Databases", "Well-modelled data and dependable access patterns."],
-  ["Cloud + DevOps", "Repeatable delivery, observability, and scale."], ["Product UI", "Useful systems designed around real people."],
+  [
+    "Understand",
+    "I begin by understanding the problem, users, business goals, technical requirements, and constraints.",
+  ],
+  [
+    "Structure",
+    "I turn complex ideas into clear user flows, features, priorities, architecture, and manageable development stages.",
+  ],
+  [
+    "Build",
+    "I develop the most valuable functionality first using clean, reusable, and maintainable code.",
+  ],
+  [
+    "Validate",
+    "I test functionality, usability, accessibility, performance, and assumptions throughout development.",
+  ],
+  [
+    "Improve",
+    "I use feedback, testing results, and real-world usage to refine the product and guide what comes next.",
+  ],
 ] as const;
 
 export const skills = [
-  { group:"Frontend", items:["TypeScript · Core","React · Production","Next.js · Production"] },
-  { group:"Backend", items:["Node.js · Production","REST APIs · Production","Supabase · Production"] },
-  { group:"Mobile", items:["React Native · Production","Expo · Production"] },
-  { group:"Data", items:["PostgreSQL · Production","Data modelling · Core"] },
-  { group:"Cloud + tooling", items:["Git · Core","Docker · Production","Cloud platforms · Exploring"] },
+  { group: "Frontend", items: ["TypeScript · Core", "React · Production", "Next.js · Production"] },
+  { group: "Backend", items: ["Node.js · Production", "REST APIs · Production", "Supabase · Production"] },
+  { group: "Mobile", items: ["React Native · Production", "Expo · Production"] },
+  { group: "Data", items: ["PostgreSQL · Production", "Data modelling · Core"] },
+  { group: "Cloud + tooling", items: ["Git · Core", "Docker · Production", "Cloud platforms · Exploring"] },
 ] as const;
 
 export const projects = [
@@ -205,4 +222,4 @@ export const experience = [
   },
 ] as const;
 
-export const process = ["Discover","Plan","Design","Build","Test","Deploy","Improve"] as const;
+export const process = ["Discover", "Plan", "Design", "Build", "Test", "Deploy", "Improve"] as const;
