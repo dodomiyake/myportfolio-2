@@ -101,6 +101,27 @@ export const projects = [
   },
   {
     id: "04",
+    name: "RentCheck",
+    summary:
+      "A mobile-first property research platform that helps renters in England investigate a home and estimate its true monthly cost before committing.",
+    contribution:
+      "Product design, full-stack development, government API integration, data validation, error handling, and responsive interface development",
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Zod",
+      "REST APIs",
+      "Vercel",
+    ],
+    impact:
+      "Combines address search, EPC records, local crime data, flood warnings, food hygiene information, company verification, and household-cost calculations in one renter-focused workflow.",
+    image: "/images/rentcheck.png",
+    demo: "https://rentcheck-three.vercel.app/",
+    source: "https://github.com/dodomiyake/rentcheck",
+  },
+  {
+    id: "05",
     name: "Real-Time Chat Application",
     summary:
       "A real-time messaging platform supporting authenticated private conversations, group chats, and multimedia sharing.",
@@ -121,7 +142,7 @@ export const projects = [
     source: "https://github.com/dodomiyake/real-time-chat-app",
   },
   {
-    id: "05",
+    id: "06",
     name: "YelpCamp",
     summary:
       "A full-stack campground discovery platform where users can browse, create, update, and review campground listings.",
