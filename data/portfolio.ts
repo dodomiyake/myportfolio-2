@@ -6,7 +6,7 @@ export const portfolio = {
   email: "oluwadamilola.william@gmail.com",
   location: "United Kingdom · Available remotely",
   experienceYears: "4+",
-  focus: "Product engineering, AI-enabled workflows, and cross-platform experiences",
+  focus: "Product engineering, CRM integrations, workflow automation, and cross-platform experiences",
   social: { github: "https://github.com/dodomiyake/", linkedin: "https://www.linkedin.com/in/oluwadamilolaxajayi/" },
   cv: "/cv.pdf",
 } as const;
@@ -39,12 +39,27 @@ export const skills = [
   { group: "Backend", items: ["Node.js · Production", "REST APIs · Production", "Supabase · Production"] },
   { group: "Mobile", items: ["React Native · Production", "Expo · Production"] },
   { group: "Data", items: ["PostgreSQL · Production", "Data modelling · Core"] },
-  { group: "Cloud + tooling", items: ["Git · Core", "Docker · Production", "Cloud platforms · Exploring"] },
+  { group: "CRM + automation", items: ["HubSpot CRM · Applied", "API integrations · Production", "Workflow automation · Applied"] },
+  { group: "Cloud + tooling", items: ["Git · Core", "Docker · Production", "Vercel · Production"] },
 ] as const;
 
 export const projects = [
   {
     id: "01",
+    name: "Feyse Clothing Labels",
+    summary:
+      "A CRM-enabled order operations platform for a clothing-label business, coordinating customer enquiries, quotations, payments, production, and dispatch.",
+    contribution:
+      "Product design, full-stack engineering, HubSpot CRM integration, data modelling, workflow automation, and production deployment",
+    stack: ["Next.js", "TypeScript", "Supabase", "HubSpot CRM", "Vercel"],
+    impact:
+      "Transforms WhatsApp-led enquiries into structured records and synchronises customers and opportunities with HubSpot Contacts and Deals, including pipeline stages, associations, durable retries, duplicate prevention, and stale-record recovery.",
+    image: "/images/feyse-clothing-labels.png",
+    demo: "https://feyseclothinglabel.vercel.app/",
+    source: "https://github.com/dodomiyake/feyseclothinglabel",
+  },
+  {
+    id: "02",
     name: "FeyseFit",
     summary:
       "A cross-platform fashion workspace connecting designers with local and international clients from enquiry through delivery.",
@@ -58,7 +73,7 @@ export const projects = [
     source: "https://github.com/dodomiyake/feysefit",
   },
   {
-    id: "02",
+    id: "03",
     name: "RCCG FLT",
     summary:
       "A responsive church website created for RCCG FLT to present the ministry, share service information and events, and help members and visitors stay connected.",
@@ -76,7 +91,7 @@ export const projects = [
     source: "https://github.com/dodomiyake/rccg-Godslovetabernacle",
   },
   {
-    id: "03",
+    id: "04",
     name: "ZenHaven",
     summary:
       "A full-stack e-commerce platform with responsive product browsing, persistent cart management, and secure online payments.",
@@ -100,7 +115,7 @@ export const projects = [
     source: "https://github.com/dodomiyake/zenhaven",
   },
   {
-    id: "04",
+    id: "05",
     name: "RentCheck",
     summary:
       "A mobile-first property research platform that helps renters in England investigate a home and estimate its true monthly cost before committing.",
@@ -121,7 +136,7 @@ export const projects = [
     source: "https://github.com/dodomiyake/rentcheck",
   },
   {
-    id: "05",
+    id: "06",
     name: "Real-Time Chat Application",
     summary:
       "A real-time messaging platform supporting authenticated private conversations, group chats, and multimedia sharing.",
@@ -142,7 +157,7 @@ export const projects = [
     source: "https://github.com/dodomiyake/real-time-chat-app",
   },
   {
-    id: "06",
+    id: "07",
     name: "YelpCamp",
     summary:
       "A full-stack campground discovery platform where users can browse, create, update, and review campground listings.",
