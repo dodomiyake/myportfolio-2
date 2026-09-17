@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Rounding to the Nearest 100,000</title>
+<style>
+:root{--bg:#fff8ee;--card:#fff;--ink:#1f2937;--muted:#6b7280;--accent:#4ba3e3;--good:#15803d;--bad:#b91c1c;--line:#e5e7eb}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;padding:18px}.app{width:min(100%,560px);margin:auto}.top{display:flex;justify-content:space-between;gap:12px;font-weight:800;margin-bottom:10px}.progress{height:10px;background:#e9eef2;border-radius:999px;overflow:hidden;margin-bottom:16px}.bar{height:100%;width:0;background:var(--accent);transition:width .25s ease}.card{background:var(--card);border-radius:24px;padding:24px;box-shadow:0 12px 40px rgba(31,41,55,.10)}h1{font-size:clamp(1.55rem,5vw,2rem);margin:0 0 8px;line-height:1.15}.sub{color:var(--muted);margin-bottom:20px}.question{font-size:1.3rem;line-height:1.45;font-weight:800;margin:14px 0 18px}.options{display:grid;gap:12px}button{width:100%;min-height:58px;border:2px solid var(--line);border-radius:16px;background:#fff;color:var(--ink);font-size:1.05rem;font-weight:800;padding:14px 16px;text-align:left}button.correct{border-color:#86efac;background:#f0fdf4;color:var(--good)}button.wrong{border-color:#fecaca;background:#fef2f2;color:var(--bad)}button:disabled{opacity:1}.feedback{margin-top:16px;padding:14px 16px;border-radius:14px;display:none;line-height:1.45;font-weight:700}.feedback.show{display:block}.feedback.good{background:#f0fdf4;color:var(--good)}.feedback.bad{background:#fef2f2;color:var(--bad)}.next,.restart{margin-top:16px;text-align:center;background:var(--accent);color:#fff;border:0;display:none}.next.show,.restart{display:block}.center{text-align:center}.score{font-size:3.4rem;font-weight:900;color:#2f7fb8;margin:14px 0 4px}.small{font-size:.95rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<main class="app">
+<div class="top"><div id="qcount">Question 1 of 20</div><div id="scoreTop">Score: 0</div></div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<section class="card" id="quizCard">
+<h1>Rounding to the Nearest 100,000</h1><div class="sub">Choose the best answer.</div>
+<div class="question" id="question"></div><div class="options" id="options"></div><div class="feedback" id="feedback"></div><button class="next" id="nextBtn">Next question</button>
+</section>
+</main>
+<script>
+const STORAGE_KEY='rounding100000QuizV1';
+const quiz=[
+{q:'Round 347,281 to the nearest 100,000.',options:['300,000','400,000','350,000','340,000'],answer:0,why:'347,281 is closer to 300,000 than 400,000.'},
+{q:'Round 368,901 to the nearest 100,000.',options:['300,000','400,000','370,000','360,000'],answer:1,why:'368,901 is above 350,000, so it rounds to 400,000.'},
+{q:'Round 749,999 to the nearest 100,000.',options:['700,000','800,000','750,000','740,000'],answer:0,why:'749,999 is just below 750,000, so it rounds to 700,000.'},
+{q:'Round 750,000 to the nearest 100,000.',options:['700,000','800,000','750,000','900,000'],answer:1,why:'750,000 is exactly halfway, so it rounds up to 800,000.'},
+{q:'Round 651,234 to the nearest 100,000.',options:['600,000','650,000','700,000','660,000'],answer:2,why:'651,234 is above 650,000, so it rounds to 700,000.'},
+{q:'Round 249,999 to the nearest 100,000.',options:['200,000','300,000','250,000','240,000'],answer:0,why:'249,999 is just below 250,000, so it rounds to 200,000.'},
+{q:'Round 950,001 to the nearest 100,000.',options:['900,000','950,000','1,000,000','990,000'],answer:2,why:'950,001 is just above halfway, so it rounds to 1,000,000.'},
+{q:'Which number rounds to 500,000 to the nearest 100,000?',options:['449,999','548,999','550,001','650,000'],answer:1,why:'548,999 lies between 450,000 and 549,999, so it rounds to 500,000.'},
+{q:'Round 899,999 to the nearest 100,000.',options:['800,000','890,000','900,000','1,000,000'],answer:2,why:'899,999 is only 1 away from 900,000.'},
+{q:'A number is exactly halfway between 400,000 and 500,000. What is the number, and what does it round to?',options:['450,000 → 500,000','450,000 → 400,000','440,000 → 400,000','460,000 → 500,000'],answer:0,why:'The halfway number is 450,000, and halfway values round up to 500,000.'},
+{q:'Round 1,249,999 to the nearest 100,000.',options:['1,200,000','1,300,000','1,250,000','1,240,000'],answer:0,why:'1,249,999 is just below 1,250,000, so it rounds to 1,200,000.'},
+{q:'Round 1,250,000 to the nearest 100,000.',options:['1,200,000','1,250,000','1,300,000','1,350,000'],answer:2,why:'1,250,000 is exactly halfway, so it rounds up to 1,300,000.'},
+{q:'Round 2,649,999 to the nearest 100,000.',options:['2,600,000','2,700,000','2,650,000','2,640,000'],answer:0,why:'2,649,999 is just below 2,650,000, so it rounds to 2,600,000.'},
+{q:'Round 2,650,000 to the nearest 100,000.',options:['2,600,000','2,650,000','2,700,000','2,750,000'],answer:2,why:'2,650,000 is exactly halfway, so it rounds up to 2,700,000.'},
+{q:'Which number rounds to 1,800,000 to the nearest 100,000?',options:['1,749,999','1,823,450','1,850,000','1,900,000'],answer:1,why:'Numbers from 1,750,000 to 1,849,999 round to 1,800,000.'},
+{q:'Round 3,451,200 to the nearest 100,000.',options:['3,400,000','3,450,000','3,500,000','3,600,000'],answer:2,why:'3,451,200 is above 3,450,000, so it rounds to 3,500,000.'},
+{q:'Round 4,949,999 to the nearest 100,000.',options:['4,900,000','5,000,000','4,950,000','4,940,000'],answer:0,why:'4,949,999 is one less than 4,950,000, so it rounds to 4,900,000.'},
+{q:'Which number rounds to 6,000,000 to the nearest 100,000?',options:['5,949,999','6,049,999','6,050,000','6,150,000'],answer:1,why:'6,049,999 is below 6,050,000, so it rounds to 6,000,000.'},
+{q:'What is the smallest whole number that rounds to 2,300,000 to the nearest 100,000?',options:['2,249,999','2,250,000','2,300,001','2,350,000'],answer:1,why:'2,250,000 is exactly halfway and rounds up to 2,300,000.'},
+{q:'What is the greatest whole number that rounds to 7,400,000 to the nearest 100,000?',options:['7,400,999','7,449,999','7,450,000','7,499,999'],answer:1,why:'7,449,999 is the last whole number below 7,450,000.'}
+];
+let index=0,score=0,selected=null,finished=false;
+const qcount=document.getElementById('qcount'),scoreTop=document.getElementById('scoreTop'),bar=document.getElementById('bar'),question=document.getElementById('question'),options=document.getElementById('options'),feedback=document.getElementById('feedback'),nextBtn=document.getElementById('nextBtn'),card=document.getElementById('quizCard');
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify({index,score,selected,finished}));}
+function load(){try{const s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(!s)return;if(Number.isInteger(s.index)&&s.index>=0&&s.index<quiz.length)index=s.index;if(Number.isInteger(s.score)&&s.score>=0&&s.score<=quiz.length)score=s.score;if(s.selected===null||Number.isInteger(s.selected))selected=s.selected;finished=!!s.finished;}catch(e){}}
+function render(){if(finished){finish();return;}const item=quiz[index];qcount.textContent=`Question ${index+1} of ${quiz.length}`;scoreTop.textContent=`Score: ${score}`;bar.style.width=`${(index/quiz.length)*100}%`;question.textContent=item.q;options.innerHTML='';feedback.className='feedback';feedback.textContent='';nextBtn.className='next';nextBtn.textContent=index===quiz.length-1?'See my score':'Next question';item.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.textContent=`${String.fromCharCode(65+i)}. ${opt}`;btn.addEventListener('click',()=>choose(i));options.appendChild(btn);});if(selected!==null)applySelection();}
+function applySelection(){const item=quiz[index],buttons=[...options.querySelectorAll('button')];buttons.forEach(b=>b.disabled=true);if(selected===item.answer){buttons[selected].classList.add('correct');feedback.textContent=`Well done! ${item.why}`;feedback.className='feedback show good';}else{buttons[selected].classList.add('wrong');buttons[item.answer].classList.add('correct');feedback.textContent=`Not quite. ${item.why}`;feedback.className='feedback show bad';}nextBtn.className='next show';}
+function choose(i){if(selected!==null)return;selected=i;if(i===quiz[index].answer)score++;save();render();}
+nextBtn.addEventListener('click',()=>{if(index===quiz.length-1){finished=true;save();finish();return;}index++;selected=null;save();render();});
+function finish(){bar.style.width='100%';qcount.textContent='Finished';scoreTop.textContent=`Score: ${score}`;let msg='Nice try — have another go and beat your score!';if(score===quiz.length)msg='Perfect score — amazing work!';else if(score>=16)msg='Excellent work!';else if(score>=12)msg='Good job — keep practising!';card.innerHTML=`<div class="center"><h1>Quiz complete!</h1><div class="score">${score}/${quiz.length}</div><p>${msg}</p><p class="small">Rounding to the nearest 100,000</p><button class="restart" id="restartBtn">Try again</button></div>`;document.getElementById('restartBtn').addEventListener('click',()=>{localStorage.removeItem(STORAGE_KEY);location.reload();});}
+load();render();
+</script>
+</body>
+</html>
