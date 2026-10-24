@@ -136,10 +136,10 @@ export const projects = [
   },
   {
     id: "07",
-    name: "RCCG God's Love Tabernacle",
+    name: "RCCG GLT",
     status: "Live · Client website",
     summary:
-      "A responsive website for a UK church, presenting the ministry, service times, programmes and events for members and first-time visitors.",
+      "A responsive website for RCCG God's Love Tabernacle, a UK church, presenting the ministry, service times, programmes and events for members and first-time visitors.",
     contribution:
       "Website design, frontend development, responsive implementation, and content architecture",
     stack: ["Frontend Development", "Responsive Web Design", "Content Architecture"],
@@ -151,21 +151,6 @@ export const projects = [
   },
   {
     id: "08",
-    name: "Real-Time Chat Application",
-    status: "Earlier project · Demo may take ~30s to wake",
-    summary:
-      "A real-time messaging platform supporting authenticated private conversations, group chats, and multimedia sharing.",
-    contribution:
-      "Full-stack engineering, authentication, real-time event handling, and responsive interface development",
-    stack: ["React", "Node.js", "Express", "MongoDB", "Socket.IO", "Tailwind CSS"],
-    impact:
-      "Private and group conversations with typing indicators, timestamps, avatars, and real-time file sharing.",
-    image: "/images/chitchatt.png",
-    demo: "https://real-time-chat-app-1-ctof.onrender.com/",
-    source: "https://github.com/dodomiyake/real-time-chat-app",
-  },
-  {
-    id: "09",
     name: "YelpCamp",
     status: "Earlier project · Demo may take ~30s to wake",
     summary:
