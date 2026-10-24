@@ -12,7 +12,7 @@ export function ProjectCard({ project }: { project: (typeof projects)[number] })
         <span>{project.id}</span>
       </div>
       <div className="project-copy">
-        <p className="eyebrow">Featured project</p>
+        <p className="eyebrow">{project.status}</p>
         <h3>{project.name}</h3>
         <p className="summary">{project.summary}</p>
         <dl>

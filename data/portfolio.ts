@@ -38,140 +38,143 @@ export const skills = [
   { group: "Frontend", items: ["TypeScript · Core", "React · Production", "Next.js · Production"] },
   { group: "Backend", items: ["Node.js · Production", "REST APIs · Production", "Supabase · Production"] },
   { group: "Mobile", items: ["React Native · Production", "Expo · Production"] },
-  { group: "Data", items: ["PostgreSQL · Production", "Data modelling · Core"] },
+  { group: "Data", items: ["PostgreSQL · Production", "Python · Applied", "Data modelling · Core"] },
   { group: "CRM + automation", items: ["HubSpot CRM · Applied", "API integrations · Production", "Workflow automation · Applied"] },
-  { group: "Cloud + tooling", items: ["Git · Core", "Docker · Production", "Vercel · Production"] },
+  { group: "Cloud + tooling", items: ["Git · Core", "GitHub Actions · Production", "Vercel · Production"] },
 ] as const;
 
 export const projects = [
   {
     id: "01",
+    name: "Scorecast",
+    status: "Live · Data product",
+    summary:
+      "A football match prediction platform that prices every fixture across Europe's top leagues with a statistical model and publishes its own track record.",
+    contribution:
+      "Statistical modelling, data pipeline, automated testing, CI/CD, and front-end design",
+    stack: ["Python", "NumPy", "SciPy", "scikit-learn", "JavaScript", "GitHub Actions", "Vercel"],
+    impact:
+      "A Dixon-Coles model fitted on real results produces predicted scorelines, outcome probabilities and tips priced against bookmaker odds, validated on out-of-sample predictions. A daily GitHub Actions pipeline fetches fixtures, odds and results, rebuilds the site and deploys it automatically.",
+    image: "/images/scorecast.png",
+    demo: "https://scorecast-lemon.vercel.app/",
+    source: "https://github.com/dodomiyake/scorecast",
+  },
+  {
+    id: "02",
     name: "Feyse Clothing Labels",
+    status: "Live · Client platform",
     summary:
       "A CRM-enabled order operations platform for a clothing-label business, coordinating customer enquiries, quotations, payments, production, and dispatch.",
     contribution:
       "Product design, full-stack engineering, HubSpot CRM integration, data modelling, workflow automation, and production deployment",
-    stack: ["Next.js", "TypeScript", "Supabase", "HubSpot CRM", "Vercel"],
+    stack: ["Next.js", "TypeScript", "Supabase", "HubSpot CRM", "Resend", "Zod", "Vercel"],
     impact:
-      "Transforms WhatsApp-led enquiries into structured records and synchronises customers and opportunities with HubSpot Contacts and Deals, including pipeline stages, associations, durable retries, duplicate prevention, and stale-record recovery.",
+      "Turns WhatsApp-led enquiries into structured records and syncs customers and enquiries to HubSpot as contacts and deals through a durable outbox with idempotent retries, so a HubSpot outage never blocks an order. Row-level security on every table, server-generated quote and invoice PDFs, and a full audit trail.",
     image: "/images/feyse-clothing-labels.png",
     demo: "https://feyseclothinglabel.vercel.app/",
     source: "https://github.com/dodomiyake/feyseclothinglabel",
   },
   {
-    id: "02",
-    name: "FeyseFit",
+    id: "03",
+    name: "RentCheck",
+    status: "Live · Consumer tool",
     summary:
-      "A cross-platform fashion workspace connecting designers with local and international clients from enquiry through delivery.",
+      "A mobile-first property research platform that helps renters in England investigate a home and estimate its true monthly cost before committing.",
+    contribution:
+      "Product design, full-stack development, government API integration, payments, data validation, and error handling",
+    stack: ["Next.js", "TypeScript", "Supabase", "Stripe", "Zod", "Vercel"],
+    impact:
+      "Combines EPC ratings, police street-level crime data, Environment Agency flood warnings, food-hygiene ratings and Companies House records with a true-cost calculator. Each source fails independently so one outage never breaks a report, and paid plans run on Stripe checkout and webhooks.",
+    image: "/images/rentcheck.png",
+    demo: "https://rentcheck-three.vercel.app/",
+    source: "",
+  },
+  {
+    id: "04",
+    name: "FeyseFit",
+    status: "Live · Marketplace",
+    summary:
+      "A made-to-measure fashion platform connecting clients with designers in the UK, Africa and the diaspora, from enquiry through delivery.",
     contribution:
       "Product design, full-stack engineering, authentication, database architecture, and client workflow development",
-    stack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    stack: ["Next.js", "TypeScript", "Prisma", "Supabase", "Tailwind CSS"],
     impact:
-      "Brings remote measurements, appointment management, project tracking, customer communication, and designer discovery into one coordinated workflow.",
+      "Brings remote measurements, bookings, project tracking and a designer marketplace with admin approvals into one mobile-first workflow, backed by a versioned REST API.",
     image: "/images/feysefitt.png",
     demo: "https://feysefit.vercel.app/",
     source: "https://github.com/dodomiyake/feysefit",
   },
   {
-    id: "03",
-    name: "RCCG FLT",
+    id: "05",
+    name: "Metheues Clothings",
+    status: "In development · E-commerce",
     summary:
-      "A responsive church website created for RCCG FLT to present the ministry, share service information and events, and help members and visitors stay connected.",
+      "A T-shirt-first e-commerce storefront and admin, designed as one system in Figma and built to match it.",
+    contribution:
+      "Design system, product design, database design, and full-stack engineering",
+    stack: ["Next.js 15", "React 19", "TypeScript", "Supabase", "PostgreSQL", "Stripe", "Resend", "Figma"],
+    impact:
+      "A 64-screen Figma design system with 9 email templates. Business rules live in PostgreSQL rather than app code: stock can never go negative, idempotent Stripe webhooks decrement stock exactly once, and prices are only ever calculated on the server.",
+    image: "/images/metheues.png",
+    demo: "",
+    source: "https://github.com/dodomiyake/Metheuesclothing",
+  },
+  {
+    id: "06",
+    name: "Ohun",
+    status: "In development · Messaging",
+    summary:
+      "An accessible, private real-time messaging app for friends and family, on web and mobile from one TypeScript codebase.",
+    contribution:
+      "Architecture, monorepo setup, real-time backend, web and mobile clients, and automated testing",
+    stack: ["TypeScript", "React", "Vite (PWA)", "React Native", "Expo", "Express", "Socket.IO", "Zod", "Playwright"],
+    impact:
+      "A monorepo sharing Zod contracts, design tokens and an API client across web and mobile, with lint, type-check, unit and Playwright end-to-end tests on every change.",
+    image: "/images/ohun.png",
+    demo: "",
+    source: "https://github.com/dodomiyake/Ohun",
+  },
+  {
+    id: "07",
+    name: "RCCG God's Love Tabernacle",
+    status: "Live · Client website",
+    summary:
+      "A responsive website for a UK church, presenting the ministry, service times, programmes and events for members and first-time visitors.",
     contribution:
       "Website design, frontend development, responsive implementation, and content architecture",
-    stack: [
-      "Frontend Development",
-      "Responsive Web Design",
-      "Content Management",
-    ],
+    stack: ["Frontend Development", "Responsive Web Design", "Content Architecture"],
     impact:
-      "Established a clear digital presence where visitors can learn about the church, view programmes and service details, and access important contact information.",
+      "Gave the church a clear digital presence where visitors can learn about the ministry, see service details and programmes, and find contact information.",
     image: "/images/rccglt.png",
     demo: "https://www.rccgglt.org/",
     source: "https://github.com/dodomiyake/rccg-Godslovetabernacle",
   },
   {
-    id: "04",
-    name: "ZenHaven",
-    summary:
-      "A full-stack e-commerce platform with responsive product browsing, persistent cart management, and secure online payments.",
-    contribution:
-      "Full-stack development, payment integration, state management, and cloud deployment",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Zustand",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Stripe",
-      "AWS",
-    ],
-    impact:
-      "Delivered a complete shopping experience with persistent cart state, Stripe checkout, cloud-hosted services, and Amazon S3 media storage.",
-    image: "/images/zenhaven.png",
-    demo: "https://zenhaven-frontend.onrender.com/",
-    source: "https://github.com/dodomiyake/zenhaven",
-  },
-  {
-    id: "05",
-    name: "RentCheck",
-    summary:
-      "A mobile-first property research platform that helps renters in England investigate a home and estimate its true monthly cost before committing.",
-    contribution:
-      "Product design, full-stack development, government API integration, data validation, error handling, and responsive interface development",
-    stack: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Zod",
-      "REST APIs",
-      "Vercel",
-    ],
-    impact:
-      "Combines address search, EPC records, local crime data, flood warnings, food hygiene information, company verification, and household-cost calculations in one renter-focused workflow.",
-    image: "/images/rentcheck.png",
-    demo: "https://rentcheck-three.vercel.app/",
-    source: "https://github.com/dodomiyake/rentcheck",
-  },
-  {
-    id: "06",
+    id: "08",
     name: "Real-Time Chat Application",
+    status: "Earlier project · Demo may take ~30s to wake",
     summary:
       "A real-time messaging platform supporting authenticated private conversations, group chats, and multimedia sharing.",
     contribution:
       "Full-stack engineering, authentication, real-time event handling, and responsive interface development",
-    stack: [
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Socket.IO",
-      "Tailwind CSS",
-    ],
+    stack: ["React", "Node.js", "Express", "MongoDB", "Socket.IO", "Tailwind CSS"],
     impact:
-      "Enabled users to communicate through private and group conversations with typing indicators, timestamps, avatars, and real-time file sharing.",
+      "Private and group conversations with typing indicators, timestamps, avatars, and real-time file sharing.",
     image: "/images/chitchatt.png",
     demo: "https://real-time-chat-app-1-ctof.onrender.com/",
     source: "https://github.com/dodomiyake/real-time-chat-app",
   },
   {
-    id: "07",
+    id: "09",
     name: "YelpCamp",
+    status: "Earlier project · Demo may take ~30s to wake",
     summary:
       "A full-stack campground discovery platform where users can browse, create, update, and review campground listings.",
     contribution:
       "Backend development, authentication, CRUD functionality, database integration, and responsive interface development",
-    stack: [
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Mongoose",
-      "Bootstrap",
-    ],
+    stack: ["Node.js", "Express", "MongoDB", "Mongoose", "Bootstrap"],
     impact:
-      "Delivered a complete listing platform with user authentication, protected routes, interactive maps, reviews, and full CRUD operations.",
+      "A complete listing platform with user authentication, protected routes, interactive maps, reviews, and full CRUD operations.",
     image: "/images/yelpcampp.png",
     demo: "https://yelpcamp-1bu3.onrender.com/",
     source: "https://github.com/dodomiyake/yelpcamp",
@@ -182,13 +185,13 @@ export const experience = [
   {
     role: "Freelance Full-Stack Developer",
     company: "Independent",
-    dates: "Jan 2022 — Present",
+    dates: "Aug 2024 — Present",
     text:
-      "Design and build responsive full-stack web applications for independent, collaborative, and client-focused projects while working alongside my primary employment.",
+      "Deliver full-stack web products end to end, from requirements and UI design through database schema, APIs, testing and deployment, alongside my primary employment.",
     win:
-      "Built applications including FeyseFit, an end-to-end fashion workspace for remote measurements, designer discovery, project tracking, appointments, and client communication.",
+      "Shipped four live products — Scorecast, Feyse Clothing Labels, RentCheck and FeyseFit — with Metheues Clothings and Ohun in development, integrating HubSpot CRM, Stripe, Resend and UK government open-data APIs.",
     tech:
-      "Next.js · React · TypeScript · Node.js · Express · Supabase · MongoDB · AWS · Stripe",
+      "Next.js · React · TypeScript · Python · Supabase · PostgreSQL · Stripe · HubSpot · GitHub Actions · Vercel",
   },
   {
     role: "FLT Operative — Reach Truck",
@@ -213,18 +216,18 @@ export const experience = [
       "Voice Picking · Stock Handling · Order Fulfilment",
   },
   {
-    role: "Web Developer",
-    company: "100Devs",
+    role: "Software Engineering Programme",
+    company: "100Devs (part-time)",
     dates: "Jan 2022 — Jul 2024",
     text:
-      "Developed full-stack web applications using React, Next.js, Node.js, Express, and MongoDB through collaborative and project-based development.",
+      "Completed an intensive full-stack programme alongside full-time work, building and deploying React, Node.js, Express and MongoDB applications.",
     win:
-      "Created reusable components and REST APIs that improved application performance by 20% and reduced defects during QA testing.",
+      "Built projects with JWT authentication and Stripe payments, deployed on AWS Amplify with assets on Amazon S3, and worked in Agile teams on planning, code review and debugging.",
     tech:
-      "React · Next.js · Node.js · Express · MongoDB · AWS · Stripe",
+      "React · Node.js · Express · MongoDB · JWT · Stripe · AWS",
   },
   {
-    role: "Recycle Operative",
+    role: "Recycling Operative",
     company: "Sweeep Kuusakoski",
     dates: "Jan 2024 — Aug 2024",
     text:
