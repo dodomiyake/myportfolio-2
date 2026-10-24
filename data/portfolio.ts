@@ -107,16 +107,16 @@ export const projects = [
   {
     id: "05",
     name: "Metheues Clothings",
-    status: "In development · E-commerce",
+    status: "Live preview · E-commerce",
     summary:
-      "A T-shirt-first e-commerce storefront and admin, designed as one system in Figma and built to match it.",
+      "A T-shirt-first fashion label's storefront and admin, designed as one system in Figma and built to match it — now live as a preview.",
     contribution:
       "Design system, product design, database design, and full-stack engineering",
     stack: ["Next.js 15", "React 19", "TypeScript", "Supabase", "PostgreSQL", "Stripe", "Resend", "Figma"],
     impact:
       "A 64-screen Figma design system with 9 email templates. Business rules live in PostgreSQL rather than app code: stock can never go negative, idempotent Stripe webhooks decrement stock exactly once, and prices are only ever calculated on the server.",
     image: "/images/metheues.png",
-    demo: "",
+    demo: "https://metheuesclothing.vercel.app/",
     source: "https://github.com/dodomiyake/Metheuesclothing",
   },
   {
